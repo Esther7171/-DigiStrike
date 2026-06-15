@@ -1,5 +1,5 @@
 <!-- 
-  META DESCRIPTION: DigiStrike — Digispark ATtiny85 BadUSB cybersecurity demonstration tool
+  META DESCRIPTION: DigiStrike - Digispark ATtiny85 BadUSB cybersecurity demonstration tool
   that silently dumps saved WiFi credentials via HID keyboard injection and exfiltrates them
   to Telegram in under 25 seconds. Built for college exhibitions and security awareness.
   Keywords: BadUSB, Digispark, ATtiny85, HID attack, WiFi credential dumper, cybersecurity,
@@ -10,7 +10,7 @@
 
 # ⚡ DigiStrike
 
-### *BadUSB WiFi Credential Exfiltrator — Digispark ATtiny85*
+### *BadUSB WiFi Credential Exfiltrator | Digispark ATtiny85*
 
 [![Platform](https://img.shields.io/badge/Platform-Windows-0078D6?style=for-the-badge&logo=windows&logoColor=white)](https://github.com/Esther7171/-DigiStrike)
 [![Language](https://img.shields.io/badge/Language-Arduino%20%7C%20PowerShell-00979D?style=for-the-badge&logo=arduino&logoColor=white)](https://github.com/Esther7171/-DigiStrike)
@@ -58,9 +58,9 @@ The **Digispark** is a microcontroller board built around the **Atmel ATtiny85**
 
 | Property | Detail |
 |----------|--------|
-| Disguise | Registers as HID keyboard — no USB storage ever appears |
+| Disguise | Registers as HID keyboard. No USB storage ever appears |
 | AV Bypass | No antivirus triggers, no USB device logs, no driver install |
-| Cost | Under ₹300 (~$3 USD) — cheapest HID attack hardware available |
+| Cost | Under ₹300 (~$3 USD). Cheapest HID attack hardware available |
 | Size | Smaller than a thumb |
 | Customizable | Any keyboard payload programmable via Arduino IDE |
 | Real-World Use | Used in actual penetration testing engagements |
@@ -106,7 +106,7 @@ Every delay is hardcoded into the chip at flash time. The attack is fully determ
 | 5 | Chat ID Injection | Set `$env:CI` as environment variable | `0.4s` |
 | 6 | Payload Execution | Download `void.ps1`, run it, exfiltrate | `15.0s` |
 | 7 | Clean Exit | Type `exit`, close PowerShell | `0.5s` |
-| | | **Total — plug to done** | **`~24.3s`** |
+| | | **Total (plug to done)** | **`~24.3s`** |
 
 The entire attack finishes in under 25 seconds.
 
@@ -154,7 +154,7 @@ After the device is unplugged, there is nothing left to find.
 
 ```
 ╔═════════════════════════════════════════════════════════════════╗
-║                   DIGISTRIKE — ATTACK FLOW                     ║
+║                      DIGISTRIKE ATTACK FLOW                    ║
 ╚═════════════════════════════════════════════════════════════════╝
 
   ┌───────────┐      ┌──────────────────┐      ┌────────────────┐
@@ -199,13 +199,13 @@ After the device is unplugged, there is nothing left to find.
 
 ### Prerequisites
 
-- Arduino IDE 1.8.x (recommended — 2.x has known upload timing issues with Digispark)
+- Arduino IDE 1.8.x (recommended, 2.x has known upload timing issues with Digispark)
 - A Digispark ATtiny85 board
 - A Telegram bot for receiving the exfiltrated data
 
 ---
 
-### Step 1 — Board Manager
+### Step 1: Board Manager
 
 Open Arduino IDE → `File` → `Preferences`
 
@@ -225,7 +225,7 @@ Tools → Board → Digistump AVR Boards → Digispark (Default - 16.5mhz)
 
 ---
 
-### Step 2 — DigiKeyboard Library
+### Step 2: DigiKeyboard Library
 
 `DigiKeyboard.h` ships with the Digistump board package. No separate install needed.
 
@@ -236,7 +236,7 @@ Sketch → Include Library → Manage Libraries → search "DigiKeyboard" → In
 
 ---
 
-### Step 3 — Configure the Payload
+### Step 3: Configure the Payload
 
 Open [digispark/r00t_b0t.ino](digispark/r00t_b0t.ino) and replace the placeholders:
 
@@ -249,7 +249,7 @@ These values are typed as live keystrokes. They never touch disk or GitHub.
 
 ---
 
-### Step 4 — Flash
+### Step 4: Flash
 
 Click **Upload** in Arduino IDE. You will see:
 ```
@@ -268,7 +268,7 @@ Done. The board is ready.
 
 ---
 
-### Step 5 — Telegram Bot Setup
+### Step 5: Telegram Bot Setup
 
 Open Telegram → search `@BotFather` → send `/newbot` → follow the prompts.
 
@@ -288,7 +288,7 @@ Paste both values into the `.ino` file as shown in Step 3 and reflash.
 
 ---
 
-### Step 6 — Deploy
+### Step 6: Deploy
 
 Plug the flashed Digispark into any Windows machine with saved WiFi networks. In roughly 24 seconds a `.txt` file containing all saved SSIDs and plaintext passwords will arrive in your Telegram, labelled with the target machine name and username.
 
